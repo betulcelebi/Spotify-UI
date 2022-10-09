@@ -4,7 +4,6 @@ import 'package:spotify_ui/pages/library.dart';
 import 'package:spotify_ui/pages/mainpage.dart';
 import 'package:spotify_ui/pages/search.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -15,13 +14,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MainPage() //Anasayfa olarak ilk açılan ekran sayfası Mainpage olarak atanmıştır.
-    );
+        title: 'Spotify UI',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home:
+            MainPage() //Anasayfa olarak ilk açılan ekran sayfası Mainpage olarak atanmıştır.
+        );
   }
 }
 
@@ -35,7 +35,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int selectedIndex = 0; /*index ataması yapılarak bottomnavigationbar panelinde görüntülenecek sayfalar bir 
+  int selectedIndex =
+      0; /*index ataması yapılarak bottomnavigationbar panelinde görüntülenecek sayfalar bir 
                            liste içerisinde tanımlanarak index numarasına göre sayfasda görüntülenmesi sağlanmıştır.*/
   onTap(index) {
     setState(() {
@@ -43,7 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  final List<Widget> screens = [ //Sayfaların liste içerisinde tanımlanması
+  final List<Widget> screens = [
+    //Sayfaların liste içerisinde tanımlanması
     const HomePage(),
     const SearchPage(),
     const LibraryPage(),
@@ -53,9 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: screens[selectedIndex], //sayfa gövdesine listeli sayfaların index numarası göre sıralanarak gösterilmesi
-      bottomNavigationBar: BottomNavigationBar(//alt menü atamasının yapılması
-        currentIndex: selectedIndex, 
+      body: screens[
+          selectedIndex], //sayfa gövdesine listeli sayfaların index numarası göre sıralanarak gösterilmesi
+      bottomNavigationBar: BottomNavigationBar(
+        //alt menü atamasının yapılması
+        currentIndex: selectedIndex,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
         onTap: onTap,
@@ -63,7 +67,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/home.png",
-              color: selectedIndex == 0 ?  Color(0xff1ED760) : Colors.white, //seçili durumda olan index sayfasının görünümü alt menüde yeşil duruma geçer seçili olmayan durumda beyaz görünümde olur.
+              color: selectedIndex == 0
+                  ? Color(0xff1ED760)
+                  : Colors
+                      .white, //seçili durumda olan index sayfasının görünümü alt menüde yeşil duruma geçer seçili olmayan durumda beyaz görünümde olur.
             ),
             label: " ",
           ),
